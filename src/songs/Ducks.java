@@ -1,3 +1,5 @@
+package songs;
+
 import java.util.Scanner;
 public class Ducks {
     public static void main(String[] args) {
