@@ -1,18 +1,16 @@
 package banking;
 
-
 import java.util.Scanner;
 
 public class bank { //create the main class banking
-    Scanner  input = new Scanner(System.in);/*calling the scanner class-making a new scanner which you store
+    Scanner input = new Scanner(System.in);/*calling the scanner class-making a new scanner which you store
                                               in the variable "input"..this can be called anything */
-    private String name = "";
-    public String user_name="Abby";
-    private int balance =90;
-    private  String password="123";
+    public String user_name = "Abby";
+    private int balance = 90;
+    private String password = "123";//variables stored with data values
 
-    public bank(){ //constructor is first that the compiler
-    balance = 544364656;
+    public bank() { //constructor is first
+        balance = 544364656;//what you want the computer to print out
 
     }
 
@@ -21,20 +19,19 @@ public class bank { //create the main class banking
     }
 
     //When we first launch the program we are prompted to log in to our account.
-    public  void login() {
+    public void login() {
         System.out.println("enter username");
-        name = input.nextLine();
+        String name = input.nextLine();
         System.out.println("enter the password ");
-        String p= input.nextLine();
+        String p = input.nextLine();
 
-        if (this.user_name.equalsIgnoreCase(user_name)&& this.password.equalsIgnoreCase(password)){
-            System.out.println("Welcome " + name );
+        if (name.equalsIgnoreCase(user_name) && (p.equalsIgnoreCase(password))) {
+            System.out.println("Welcome " + name);
+            this.mainMenu();
+        } else {
+            System.out.println("Not accepted");
+
         }
-        else{
-            System.out.println("go away ");
-        }
-
-
     }
 
     //start of the program
@@ -42,24 +39,28 @@ public class bank { //create the main class banking
         // launching method
         bank newBank = new bank(); //creating a new instance
         newBank.login(); // call login method
-        newBank.mainMenu();
+
 
     }
 
-    //main menu, used to ask user what account they want to access.
     protected void mainMenu() {
         System.out.println("Which account do you want to access?..Joint or Personal?");
         String account = input.nextLine(); //user enters the account they want to access
-        checkInput(account); //go to check input, pass over the user input
+        this.checkInput(account); //go to check input, pass over the user input
     }
+
 
     //used to work out which account the user wants to work with.
     private void checkInput(String account) {
-    if(account.equalsIgnoreCase("Joint")){ //if user entered 'joint' then
-        jointAcc ja = new jointAcc(); //create a new instance of jointAcc called 'ja'
-        ja.login(); //call the login method from the jointAcc class
-    }
-     personalAccount personal = new personalAccount();
+        if (account.equalsIgnoreCase("Joint")) { //if user entered 'joint' then
+            jointAcc ja = new jointAcc(); //create a new instance of jointAcc called 'ja'
+            ja.login(); //call the login method from the jointAcc class
+        } else if (account.equalsIgnoreCase("personal")) {
+            jointAcc personal = new jointAcc();
+            personal.login();
+        } else {
+            System.out.println(account + " not recognised, returning to menu");
+        }
 
 
     }

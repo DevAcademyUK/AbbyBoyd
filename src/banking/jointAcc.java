@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 public class jointAcc {
 
+    double balance;
+
     public String user = "user";
     private String password = "happy";
-    private double balance =  122.23;
+    private double balance1 =  122.23;
     Scanner input = new Scanner(System.in);
 
     //User has to provide different details from the main login to access the joint account.
@@ -25,9 +27,8 @@ public class jointAcc {
         }
     }
 
-    private void setBalance() {
 
     }
 
 
-}
+
